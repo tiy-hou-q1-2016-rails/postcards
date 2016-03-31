@@ -1,0 +1,25 @@
+
+ <div id="mapid"></div>
+
+<script type="text/javascript">
+$(window).ready(function(){
+
+  var mymap = L.map('mapid').setView([29.73, -95.39], 10);
+
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'jwo-cink.pia181pk',
+    accessToken: 'pk.eyJ1IjoiandvLWNpbmsiLCJhIjoiQVBfcW9OOCJ9.k2Q4vbfJs16Idk2cOziQYQ'
+}).addTo(mymap);
+
+  <% @postcards.each do |postcard| %>
+    L.marker([<%= postcard.latitude %>, <%= postcard.longitude %>]).addTo(mymap)
+      .bindPopup('<b><%= postcard.location %></b><br/> <%= image_tag attachment_url(postcard, :photo, :fill, 160, 160), class: "img-responsive" %>  <br /><%= link_to 'View Postcard', postcard_path(id: postcard.id ), class: "btn btn-default btn-block" %>');
+  <% end %>
+
+
+
+})
+
+</script>

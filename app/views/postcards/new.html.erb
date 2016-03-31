@@ -1,0 +1,13 @@
+<div class="container">
+
+  <h1>New Postcard</h1>
+
+  <%= simple_form_for @postcard do |f| %>
+    <%= f.input :email_recipient %>
+    <%= f.input :message %>
+    <%= f.input :photo, as: :file %>
+    <%= f.input :location %>
+
+    <%= f.submit class: "btn btn-success btn-lg" %>
+  <% end %>
+</div>
