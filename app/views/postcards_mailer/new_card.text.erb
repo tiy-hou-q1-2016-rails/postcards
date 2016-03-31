@@ -1,0 +1,12 @@
+You Got a Postcard!
+=========
+
+Hiya!
+
+<%= @postcard.user.name %> has sent you a postcard from <%= @postcard.location %> with the following message:
+
+------------------
+<%= @postcard.message %>
+------------------
+
+View the Postcard Photo: <%= postcard_url(id: @postcard.id) %>

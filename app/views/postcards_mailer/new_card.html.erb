@@ -1,0 +1,17 @@
+<h1>You Got a Postcard!</h1>
+
+<p>
+  Hiya!
+</p>
+
+<p>
+  <%= @postcard.user.name %> has sent you a postcard from <strong><%= @postcard.location %></strong> with the following message:
+
+  <blockquote>
+    <%= simple_format @postcard.message %>
+  </blockquote>
+</p>
+
+<p>
+  <%= link_to 'View the Postcard Photo', postcard_url(id: @postcard.id) %>
+</p>
